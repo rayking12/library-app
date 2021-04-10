@@ -6,13 +6,7 @@ const addBookForm = document.getElementById('addBookForm');
 const Book = (title, author, pages, read, id = Date.now()) => ({
   title, author, pages, read, id,
 });
-// function Book(title, author, pages, read, id = Date.now()) {
-//   this.title = title;
-//   this.author = author;
-//   this.pages = pages;
-//   this.read = read;
-//   this.id = id;
-// }
+
 function toggleStatus(event) {
   const book = event.target.parentElement.parentElement;
   const id = book.dataset.id.split('-')[1];
