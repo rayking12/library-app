@@ -7,7 +7,8 @@
     <meta name="author" content="Tien Nguyen">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel = "icon" href ="https://cdn.iconscout.com/icon/premium/png-256-thumb/books-1438306-1216751.png" type = "image/x-icon"> 
 
     <link href="./styles.css" rel="stylesheet">
@@ -16,43 +17,43 @@
 <body>
     <div id="headerComponents">
         <h1 id="title"> Library App </h1>
-        <button class="trigger" type="button"> Add Book</button>
     </div>
     
 
-    <div class="modal">
-        <div class="modalContent">
-            <div class="modalHeader">
-                <h1 class="modalTitle"> Add a Book </h1>
-                <button type="button" class="close">
-                <span>&times;</span>
-                </button>
-            </div>
-            <div class="modalBody">
-                <form id="bookForm" action="" method="POST">
-
-                    <label for="author">Author:</label><br/>
-                    <input type="text" id="author" class="author" placeholder="Enter your favourite book" required/> <br />
+    <div class="container">
+        <button class="btn btn-primary d-flex mx-auto mt-4" onclick="showAddBookForm()"> Add book </button>
+        <form class="d-none" id="addBookForm" >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name of the book</label>
+            <input name="bookName" type="text" class="form-control" id="bookName" aria-describedby="nameHelp" placeholder="Enter book name" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Author</label>
+            <input name="authorName" type="text" class="form-control" id="bookAuthor" placeholder="Author" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Number of pages</label>
+            <input name="numPages" type="number" class="form-control" id="numberName" aria-describedby="numberHelp" placeholder="Enter number of pages" required>
+          </div>
+          <div class="form-check">
+            <span class="readQuestion">Have you read the book?</span>
+            <label class="switch" for="exampleCheck1">
+                <input type="checkbox" id="exampleCheck1" class="read"/>  
+                <span class="slider round"></span>
+            </label>
             
-                    <label for="title">Title:</label><br/>
-                    <input type="text" id="title" class="title" placeholder="Title" required/> <br />
-                    
-                    <label for="pages">Number of Pages:</label><br/>
-                    <input type="number" id="pages" class="pages" min="1" required/> <br />
-                    
-                    <span class="readQuestion">Have you read the book?</span>
-                    <label class="switch" for="read">
-                        <input type="checkbox" id="read" class="read"/>  
-                        <span class="slider round"></span>
-                    </label>
-                    <br />
-            
-                    <button type="submit" class="submitBtn"> Submit </button>
-                </form> 
-            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Add +</button>
+        </form>
+      </div>
+      
+        <div class="container">
+          <div class="container d-flex flex-wrap" id="books-container">
+      
+          </div>
         </div>
-    </div>
-
+      
+    
     
     <div id="renderLibrary"></div>
 
